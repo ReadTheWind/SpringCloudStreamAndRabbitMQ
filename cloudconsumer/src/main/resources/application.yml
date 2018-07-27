@@ -4,17 +4,27 @@ spring:
   cloud:
     # 消息队列
     stream:
+      #服务的整合处理
       bindings:
-        input:
+        #通道名称
+        #input:
+        #自定义通过名
+        user_input:
+          #名称定义
           destination: my.queue.log.messages
+          #设置绑定的消息服务的具体设置
           binder: local_rabbit
-          group: logMessageConsumers
+          #group: logMessageConsumers
         #output:
           #destination: my.queue.log.messages
           #binder: local_rabbit
+      #配置绑定的服务信息
       binders:
+        #定义的名称，用于binding的整合
         local_rabbit:
+          #消息组件的类型
           type: rabbit
+          #设置rabbitmq的环境
           environment:
             spring:
               rabbitmq:

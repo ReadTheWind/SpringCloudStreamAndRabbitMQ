@@ -18,6 +18,9 @@ public class CloudstreamproviderApplicationTests {
 	@Autowired
 	IMessageService messageService;
 
+	/**
+	 * 测试消息发送
+	 */
 	@Test
 	public void sendmsg() {
 		messageService.send("Hello Word!!!");

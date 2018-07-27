@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cloudcommon" />
         <module name="cloudconsumer" />
         <module name="cloudstream" />
         <module name="cloudstreamprovider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cloudcommon" target="1.5" />
       <module name="cloudconsumer" target="1.8" />
       <module name="cloudstream" target="1.5" />
       <module name="cloudstreamprovider" target="1.8" />

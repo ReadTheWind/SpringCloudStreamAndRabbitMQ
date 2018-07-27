@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/cloudstreamprovider/pom.xml" />
         <option value="$PROJECT_DIR$/cloudconsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/cloudcommon/pom.xml" />
       </list>
     </option>
   </component>
