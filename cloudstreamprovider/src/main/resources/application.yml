@@ -1,0 +1,33 @@
+server:
+  port: 9091
+spring:
+  cloud:
+    # 消息队列
+    stream:
+      bindings:
+        #input:
+          #destination: my.queue.log.messages
+         # binder: local_rabbit
+         # group: logMessageConsumers
+        output:
+          destination: my.queue.log.messages
+          binder: local_rabbit
+      binders:
+        local_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: erp2.test.pagoda.com.cn
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
+                template:
+                  retry:
+                  #发送方是否重试
+                    enabled: true
+                listener:
+                  retry:
+                  #消费方是否重试
+                    enabled: true

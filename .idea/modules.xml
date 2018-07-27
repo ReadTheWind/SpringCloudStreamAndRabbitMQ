@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloudconsumer/cloudconsumer.iml" filepath="$PROJECT_DIR$/cloudconsumer/cloudconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudstream.iml" filepath="$PROJECT_DIR$/cloudstream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudstreamprovider/cloudstreamprovider.iml" filepath="$PROJECT_DIR$/cloudstreamprovider/cloudstreamprovider.iml" />
+    </modules>
+  </component>
+</project>
