@@ -1,10 +1,14 @@
 package com.provider.cloudstreamprovider.config;
 
+import com.provider.cloudstreamprovider.aop.CurrentUserMethodArgumentResolver;
 import com.provider.cloudstreamprovider.aop.LogHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.util.List;
 
 /**
  * web配置
@@ -28,5 +32,14 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
 		// excludePathPatterns 用户排除拦截
 		registry.addInterceptor(logHandler).addPathPatterns("/**");
 		super.addInterceptors(registry);
+	}
+
+	@Autowired
+	CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver;
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+
+		argumentResolvers.add(currentUserMethodArgumentResolver);
 	}
 }

@@ -3,6 +3,7 @@ package com.comsumer.cloudconsumer.rabbitmq;
 import com.common.api.domain.AuditLog;
 import com.common.userdefinedchannel.UserDefindedProcess;
 import com.comsumer.cloudconsumer.log.LogService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -14,6 +15,7 @@ import org.springframework.messaging.Message;
  */
 //@EnableBinding(Sink.class)
 @EnableBinding(UserDefindedProcess.class)
+@Slf4j
 public class ConsumerListener {
 
 	@Autowired
@@ -32,10 +34,10 @@ public class ConsumerListener {
 
 	@StreamListener(UserDefindedProcess.INPUT)
 	public void getObjMsg(Message<AuditLog> obj){
-		System.out.println("************------接收到消息-------**********："+obj.getPayload());
+		log.info("************------接收到消息-------**********："+obj.getPayload());
 		AuditLog auditLog=obj.getPayload();
 		logService.createLog(auditLog);
-		System.out.println("******-----消息存入数据库成功。。。。。  ----*****");
+		log.info("******-----消息存入数据库成功。。。。。  ----*****");
 	}
 
 }

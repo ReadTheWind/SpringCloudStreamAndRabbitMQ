@@ -2,6 +2,7 @@ package com.provider.cloudstreamprovider.util;
 
 import com.common.api.domain.AuditLog;
 import com.provider.cloudstreamprovider.rabbtimq.IMessageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * 日志服务逻辑处理类
  * @author liuhuan
  */
+@Slf4j
 @Component
 public class AuditLogUtil {
 
@@ -32,7 +34,7 @@ public class AuditLogUtil {
 	 * @return
 	 */
 	public  int sendMsg(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView){
-		System.out.println("*************------进入方法sendMsg,准备向MQ推送消息---*************");
+		log.info("*************------进入方法sendMsg,准备向MQ推送消息---*************");
 		HandlerMethod method=(HandlerMethod)handler;
 		AuditLogAnnotation auditLogAnnotation=method.getMethodAnnotation(AuditLogAnnotation.class);
 		AuditLog auditLog = new AuditLog();
@@ -58,7 +60,7 @@ public class AuditLogUtil {
 		auditLog.setExtension(auditLogAnnotation.extension());
 		auditLog.setPageName(auditLogAnnotation.pageName());
 		auditLog.setPageCode(auditLogAnnotation.pageCode());
-		System.out.println("*************---开始推送消息--*************");
+		log.info("*************---开始推送消息--*************");
 		try {
 			messageService.sendObj(auditLog);
 		}catch (Exception e){
