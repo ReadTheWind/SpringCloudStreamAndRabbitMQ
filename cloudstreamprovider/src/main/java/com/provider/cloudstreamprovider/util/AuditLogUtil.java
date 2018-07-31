@@ -42,10 +42,10 @@ public class AuditLogUtil {
 		auditLog.setApplicationName(auditLogContext.getApplicationName());
 		auditLog.setOperationTime(auditLogContext.getOperationTime());
 		//获取用户信息
-//		CasUser casUser=auditLogContext.getUser();
-//		auditLog.setOperatorCode(casUser.getUserCode());
-//		auditLog.setOperatorName(casUser.getUserName());
-//		auditLog.setOperatorOrgCode(casUser.getOrgCode());
+		CasUser casUser=auditLogContext.getUser();
+		auditLog.setOperatorCode(casUser.getUserCode());
+		auditLog.setOperatorName(casUser.getUserName());
+		auditLog.setOperatorOrgCode(casUser.getOrgCode());
 		//从swagger注解中获取部分信息
 //		auditLog.setOperationFunc(apiOperation.value());
 //		auditLog.setHttpMethod(apiOperation.httpMethod());

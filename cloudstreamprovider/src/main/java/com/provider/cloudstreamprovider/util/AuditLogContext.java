@@ -89,5 +89,13 @@ public class AuditLogContext {
 		return ipAddress;
 	}
 
+	public CasUser getUser(){
+		CasUser casUser= new CasUser();
+		casUser.setUserName("liuhuan");
+		casUser.setUserCode("A001");
+		casUser.setOrgCode("ORG0000008");
+		casUser.setEntId(8);
+		return casUser;
+	}
 
 }
