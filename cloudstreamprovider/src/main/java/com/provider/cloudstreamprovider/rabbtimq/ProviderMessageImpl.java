@@ -1,5 +1,6 @@
 package com.provider.cloudstreamprovider.rabbtimq;
 
+import com.common.api.domain.AuditLog;
 import com.common.userdefinedchannel.UserDefindedProcess;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
@@ -30,6 +31,11 @@ public class ProviderMessageImpl implements  IMessageService {
 
 	@Override
 	public void send(String msg) {
+//		this.output.send(MessageBuilder.withPayload(msg).build());
+	}
+
+	@Override
+	public void sendObj(AuditLog msg) {
 		this.user_output.send(MessageBuilder.withPayload(msg).build());
 	}
 }

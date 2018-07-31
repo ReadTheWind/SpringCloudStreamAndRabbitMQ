@@ -41,3 +41,6 @@ spring:
                   retry:
                   #消费方是否重试
                     enabled: true
+
+entitymanager:
+  packagesToScan: com.common.api.domain

@@ -1,6 +1,9 @@
 package com.comsumer.cloudconsumer.rabbitmq;
 
+import com.common.api.domain.AuditLog;
 import com.common.userdefinedchannel.UserDefindedProcess;
+import com.comsumer.cloudconsumer.log.LogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
@@ -13,11 +16,26 @@ import org.springframework.messaging.Message;
 @EnableBinding(UserDefindedProcess.class)
 public class ConsumerListener {
 
+	@Autowired
+	LogService logService;
+
+
 //	@StreamListener(Sink.INPUT)
+//	public void getMsg(Message<String> message){
+//
+//		System.out.print("接收到消息*************"+message.getPayload()+"**********");
+//		AuditLog auditLog=new AuditLog();
+//		auditLog.setIp("192.168.1.1");
+//		logService.createLog(auditLog);
+//		System.out.print("111111111111111");
+//	}
+
 	@StreamListener(UserDefindedProcess.INPUT)
-	public void getMsg(Message<String> message){
-		System.out.print("接收到消息*************"+message.getPayload()+"**********");
-		
+	public void getObjMsg(Message<AuditLog> obj){
+		System.out.print("接收到消息*************"+obj.getPayload()+"**********");
+		AuditLog auditLog=obj.getPayload();
+		logService.createLog(auditLog);
+		System.out.print("222222222");
 	}
 
 }
