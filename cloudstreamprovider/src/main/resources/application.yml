@@ -1,6 +1,9 @@
 server:
   port: 9091
 spring:
+  application:
+      name: spirngcloudstram-rabbtimq
+      index: ${random.uuid}
   cloud:
     # 消息队列
     stream:

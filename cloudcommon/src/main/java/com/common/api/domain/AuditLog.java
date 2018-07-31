@@ -30,7 +30,7 @@ public class AuditLog implements Serializable{
 	private String moduleCode;
 
 	@Column(name = "moduleName")
-	private  String module_name;
+	private  String moduleName;
 
 	@Column(name = "page_code")
 	private  String pageCode;
@@ -45,7 +45,7 @@ public class AuditLog implements Serializable{
 	private  String operationNote;
 
 	@Column(name = "httpMethod")
-	private String http_method;
+	private String httpMethod;
 
 	@Column(name = "operation_args")
 	private  String operationArgs;

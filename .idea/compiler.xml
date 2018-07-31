@@ -13,9 +13,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cloudcommon" target="1.5" />
+      <module name="cloudcommon" target="1.8" />
       <module name="cloudconsumer" target="1.8" />
-      <module name="cloudstream" target="1.5" />
+      <module name="cloudstream" target="1.8" />
       <module name="cloudstreamprovider" target="1.8" />
     </bytecodeTargetLevel>
   </component>

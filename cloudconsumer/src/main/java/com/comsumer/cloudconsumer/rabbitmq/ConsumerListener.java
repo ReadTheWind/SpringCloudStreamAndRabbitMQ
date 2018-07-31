@@ -32,10 +32,10 @@ public class ConsumerListener {
 
 	@StreamListener(UserDefindedProcess.INPUT)
 	public void getObjMsg(Message<AuditLog> obj){
-		System.out.print("接收到消息*************"+obj.getPayload()+"**********");
+		System.out.println("************------接收到消息-------**********："+obj.getPayload());
 		AuditLog auditLog=obj.getPayload();
 		logService.createLog(auditLog);
-		System.out.print("222222222");
+		System.out.println("******-----消息存入数据库成功。。。。。  ----*****");
 	}
 
 }

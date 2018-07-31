@@ -38,8 +38,8 @@ public class CloudstreamproviderApplicationTests {
 		auditLog.setApplicationCode("应用code");
 		auditLog.setApplicationName("应用名称");
 		auditLog.setIp("127.0.0.8");
-		auditLog.setHttp_method("GET");
-		auditLog.setModule_name("模型名");
+		auditLog.setHttpMethod("GET");
+		auditLog.setModuleName("模型名");
 		auditLog.setModuleCode("模型code");
 		auditLog.setOperationArgs("操作参数");
 		auditLog.setOperationFunc("操作功能");
